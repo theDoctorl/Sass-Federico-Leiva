@@ -3,18 +3,22 @@ body{
 
 }
 
-
+@mixin contenedor-flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+}
+$font-weights: ("regular": 400, "medium": 500, "bold": 700);
 
 .Home-header{
     h1{
         text-align: center;
+        font-weight: map-get($font-weights, "medium");
     }
 }
 
 .marcas{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    @include contenedor-flex;
     margin-top: 25px;
     width: 100%;
 
@@ -43,14 +47,14 @@ body{
 }
 
 .coleccion{
+    @extend .coleccion;
     img:hover{
 
-    transition: .5s;
-    -webkit-transform:scale(1.04);transform:scale(1.04);
-}
-}
+        transition: .5s;
+        -webkit-transform:scale(1.04);transform:scale(1.04);
+    }
 
-
+}
 
 
 .footer{
@@ -58,10 +62,6 @@ body{
     justify-content: space-between;
     color: #C24E00;
 }
-
-
-
-
 
 
 .redes{
@@ -130,3 +130,4 @@ body{
         }
     }
     }
+
